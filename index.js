@@ -4,7 +4,6 @@ const MemoryDataStore = Slack.MemoryDataStore;
 const RtmClient = Slack.RtmClient;
 const Events = Object.assign({}, Slack.CLIENT_EVENTS.RTM, Slack.RTM_EVENTS);
 
-// const tokens = require('./credentials/bot_tokens.json');
 const bot = new RtmClient(process.env.BOT_TOKEN, {
   logLevel: 'error',
   dataStore: new MemoryDataStore()
@@ -16,12 +15,12 @@ bot.on(Events.AUTHENTICATED, (info) => {
     info: _.pick(info.self, ['id', 'name']), 
     team: _.pick(info.team, ['id', 'name']),
   });
-  console.log(`Authenticated as [${bot.info.name}] of team [${bot.team.name}]`);
+  console.log(`Bot authenticated as [${bot.info.name}] of team [${bot.team.name}]`);
 });
 
 // Callback when connection established, do whatever operation needed inside callback
 bot.on(Events.RTM_CONNECTION_OPENED, () => {
-  console.log('Listening for messages');
+  console.log('Waiting messages...');
 
   // Assign me as master >:3
   const master = bot.dataStore.getUserByName('nmtuan');
@@ -72,3 +71,13 @@ bot.on(Events.RTM_CONNECTION_OPENED, () => {
 });
 
 bot.start();
+
+// [Optional] Start an http server so heroku doesn't complain
+const http = require('http');
+const morgan = require('morgan');
+const express = require('express');
+const app = express();
+app.use(morgan('dev'));
+app.use((req, res) => res.status(200).end('Hello there, I\'m a slave of master nmtuan'));
+
+http.createServer(app).listen(process.env.PORT || 1337);
