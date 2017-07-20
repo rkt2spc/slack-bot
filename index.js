@@ -4,7 +4,7 @@ const MemoryDataStore = Slack.MemoryDataStore;
 const RtmClient = Slack.RtmClient;
 const Events = Object.assign({}, Slack.CLIENT_EVENTS.RTM, Slack.RTM_EVENTS);
 
-const tokens = require('./credentials/bot_tokens.json');
+// const tokens = require('./credentials/bot_tokens.json');
 const bot = new RtmClient(process.env.BOT_TOKEN, {
   logLevel: 'error',
   dataStore: new MemoryDataStore()
