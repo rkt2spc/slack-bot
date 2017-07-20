@@ -1,0 +1,20 @@
+{
+  "name": "slack-bot",
+  "version": "1.0.0",
+  "description": "Slack bot experiment",
+  "engines": {
+    "node": "8.2.x",
+    "npm": "5.3.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nmtuan",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^3.10.0",
+    "lodash": "^4.17.4"
+  }
+}
