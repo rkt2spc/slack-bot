@@ -59,7 +59,7 @@ bot.on(Events.RTM_CONNECTION_OPENED, () => {
       }
       // Message from stranger 
       else {
-        response = `<@${message.user}> Kiu gì tui đó? Tui chỉ trả lời master <${master.id}> thui <3`;
+        response = `<@${message.user}> Kiu gì tui đó? Tui chỉ trả lời master <@${master.id}> thui <3`;
       }
 
       // Send response
