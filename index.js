@@ -73,11 +73,11 @@ bot.on(Events.RTM_CONNECTION_OPENED, () => {
 bot.start();
 
 // [Optional] Start an http server so heroku doesn't complain
-const http = require('http');
-const morgan = require('morgan');
-const express = require('express');
-const app = express();
-app.use(morgan('dev'));
-app.use((req, res) => res.status(200).end('Hello there, I\'m a slave of master nmtuan'));
+// const http = require('http');
+// const morgan = require('morgan');
+// const express = require('express');
+// const app = express();
+// app.use(morgan('dev'));
+// app.use((req, res) => res.status(200).end('Hello there, I\'m a slave of master nmtuan'));
 
-http.createServer(app).listen(process.env.PORT || 1337);
+// http.createServer(app).listen(process.env.PORT || 1337);
