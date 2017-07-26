@@ -2,7 +2,7 @@
 const blacklist = [];
 const session = {};
 
-const bot = require('./bot');
+const bot = require('./bots/Rosie');
 const slack = require('./slack');
 slack.onMessage((message) => {
   let question = message.text;
