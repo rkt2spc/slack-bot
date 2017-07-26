@@ -13,4 +13,4 @@ RUN npm install
 ADD . /src/
 
 # Application start cmd
-CMD ["/bin/bash", "start.sh"]
+CMD ["/bin/sh", "start.sh"]
