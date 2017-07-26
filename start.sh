@@ -4,8 +4,6 @@
 # Required environment variables
 REQUIRED_ENV=(
   "SLACK_TOKEN"
-  "CLEVERBOT_USER"
-  "CLEVERBOT_KEY"
 )
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
