@@ -17,3 +17,22 @@ slack.onMessage((message) => {
     }
   });
 });
+
+// HTTP Server
+const http = require('http');
+const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+
+const router = express.Router();
+router.post('/message', (req, res) => {
+  slack.sendMessage(req.body.message, req.body.channel);
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(router);
+app.use((err, req, res, next) => res.status(500).json(err));
+
+const PORT = process.env.PORT || 8080;
+http.createServer(app).listen(PORT, () => console.log('Server is listening on port', PORT));
