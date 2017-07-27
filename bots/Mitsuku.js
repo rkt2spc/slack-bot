@@ -11,7 +11,8 @@ exports.ask = (message, callback) => {
     
     const $ = cheerio.load(response.body);
     let answer = $('body font font p font').text();
-    answer = answer.match(/Mitsuku: (.+)\n?/)[1];
+    answer = answer.match(/Mitsuku: (.+)\n?/);
+    answer = answer ? answer[1] : '';
     answer = answer.trim();
     callback(null, answer);
   });

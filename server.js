@@ -10,7 +10,7 @@ slack.onMessage((message) => {
 
   bot.ask(question, (err, answer) => {
     if (err) slack.sendMessage(err.message, message.channel);
-    else {
+    else if (answer.length !== 0) {
       answer = `<@${message.user}> ${answer}`;
       answer = answer.replace('Mousebreaker', slack.client.master.name);
       slack.sendMessage(answer, message.channel);
