@@ -27,6 +27,7 @@ const app = express();
 const router = express.Router();
 router.post('/message', (req, res) => {
   slack.sendMessage(req.body.message, req.body.channel);
+  res.status(200).end('Success');
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
